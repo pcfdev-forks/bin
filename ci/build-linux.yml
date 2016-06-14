@@ -12,7 +12,6 @@ inputs:
   path: gopath/src/github.com/vito/houdini
 - name: concourse
 - name: garden-linux-release
-- name: pcfdev-ci
 
 outputs:
 - name: binary
