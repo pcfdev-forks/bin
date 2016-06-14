@@ -9,7 +9,7 @@ inputs:
   path: gopath/src/github.com/vito/houdini
 
 outputs:
-- name: binary
+- name: binary-windows
 
 run:
   path: gopath/src/github.com/concourse/bin/ci/build-windows
