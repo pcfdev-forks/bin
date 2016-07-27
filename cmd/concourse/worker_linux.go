@@ -13,11 +13,14 @@ import (
 	"code.cloudfoundry.org/cli/vendor/github.com/jessevdk/go-flags"
 	"code.cloudfoundry.org/guardian/guardiancmd"
 	"code.cloudfoundry.org/lager"
+	"github.com/cloudfoundry-incubator/guardian/guardiancmd"
 	"github.com/concourse/atc"
 	"github.com/concourse/concourse/src/github.com/concourse/baggageclaim/baggageclaimcmd"
 	"github.com/concourse/concourse/src/github.com/concourse/baggageclaim/fs"
 	"github.com/tedsuo/ifrit"
 )
+
+type GardenBackend guardiancmd.GuardianCommand
 
 func (cmd WorkerCommand) lessenRequirements(command *flags.Command) {
 	command.FindOptionByLongName("garden-depot").Required = false
