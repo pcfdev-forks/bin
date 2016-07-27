@@ -10,19 +10,14 @@ import (
 	"syscall"
 	"time"
 
+	"code.cloudfoundry.org/cli/vendor/github.com/jessevdk/go-flags"
 	"code.cloudfoundry.org/guardian/guardiancmd"
 	"code.cloudfoundry.org/lager"
 	"github.com/concourse/atc"
-	"github.com/concourse/baggageclaim/baggageclaimcmd"
-	"github.com/concourse/baggageclaim/fs"
-	"github.com/concourse/bin/bindata"
-	"github.com/jessevdk/go-flags"
+	"github.com/concourse/concourse/src/github.com/concourse/baggageclaim/baggageclaimcmd"
+	"github.com/concourse/concourse/src/github.com/concourse/baggageclaim/fs"
 	"github.com/tedsuo/ifrit"
 )
-
-const btrfsFSType = 0x9123683e
-
-type GardenBackend guardiancmd.GuardianCommand
 
 func (cmd WorkerCommand) lessenRequirements(command *flags.Command) {
 	command.FindOptionByLongName("garden-depot").Required = false
@@ -286,4 +281,9 @@ func (cmd *WorkerCommand) extractResource(
 		Image:   rootfsDir,
 		Version: version,
 	}, nil
+	return cmd.houdiniRunner(logger, "linux")
+}
+
+func (cmd *WorkerCommand) baggageclaimRunner(logger lager.Logger) (ifrit.Runner, error) {
+	return cmd.naiveBaggageclaimRunner(logger)
 }
