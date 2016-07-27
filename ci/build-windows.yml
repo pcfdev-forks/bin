@@ -7,8 +7,6 @@ inputs:
 - name: concourse
 - name: houdini
   path: gopath/src/github.com/vito/houdini
-- name: fly-rc
-- name: final-version
 
 outputs:
 - name: binary
