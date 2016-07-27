@@ -8,10 +8,11 @@ image_resource:
 inputs:
 - name: bin
   path: gopath/src/github.com/concourse/bin
+- name: houdini
+  path: gopath/src/github.com/vito/houdini
 - name: concourse
 - name: garden-runc-release
-- name: fly-rc
-- name: final-version
+- name: pcfdev-ci
 
 outputs:
 - name: binary
