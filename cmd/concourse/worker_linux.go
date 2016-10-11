@@ -9,7 +9,7 @@ import (
 
 type GardenBackend struct{}
 
-func (cmd *WorkerCommand) lessenRequirements(command *flags.Command) {
+func (cmd WorkerCommand) lessenRequirements(command *flags.Command) {
 	command.FindOptionByLongName("garden-depot").Required = false
 	command.FindOptionByLongName("garden-graph").Required = false
 	command.FindOptionByLongName("garden-runc-bin").Required = false

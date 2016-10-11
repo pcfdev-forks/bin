@@ -5,11 +5,12 @@ import (
 	"os"
 
 	"github.com/jessevdk/go-flags"
+
 	"github.com/vito/twentythousandtonnesofcrudeoil"
 )
 
 // overridden via linker flags
-var Version = "0.0.0-dev"
+var Version = "2.2.1-dev"
 
 func main() {
 	var cmd ConcourseCommand
