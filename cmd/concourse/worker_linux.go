@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/jessevdk/go-flags"
 	"code.cloudfoundry.org/lager"
-	"github.com/cloudfoundry-incubator/guardian/guardiancmd"
+	"code.cloudfoundry.org/guardian/guardiancmd"
 	"github.com/concourse/atc"
 	"github.com/tedsuo/ifrit"
 )
