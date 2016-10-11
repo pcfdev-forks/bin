@@ -10,13 +10,13 @@ import (
 	"syscall"
 	"time"
 
-	"code.cloudfoundry.org/cli/vendor/github.com/jessevdk/go-flags"
+	"github.com/jessevdk/go-flags"
 	"code.cloudfoundry.org/guardian/guardiancmd"
 	"code.cloudfoundry.org/lager"
 	"github.com/cloudfoundry-incubator/guardian/guardiancmd"
 	"github.com/concourse/atc"
-	"github.com/concourse/concourse/src/github.com/concourse/baggageclaim/baggageclaimcmd"
-	"github.com/concourse/concourse/src/github.com/concourse/baggageclaim/fs"
+	"github.com/concourse/baggageclaim/baggageclaimcmd"
+	"github.com/concourse/baggageclaim/fs"
 	"github.com/tedsuo/ifrit"
 )
 
