@@ -3,11 +3,12 @@ package main
 import (
 	"github.com/jessevdk/go-flags"
 	"code.cloudfoundry.org/lager"
+	"github.com/cloudfoundry-incubator/guardian/guardiancmd"
 	"github.com/concourse/atc"
 	"github.com/tedsuo/ifrit"
 )
 
-type GardenBackend struct{}
+type GardenBackend guardiancmd.GuardianCommand
 
 func (cmd WorkerCommand) lessenRequirements(command *flags.Command) {
 	command.FindOptionByLongName("garden-depot").Required = false
