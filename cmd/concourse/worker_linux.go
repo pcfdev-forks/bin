@@ -13,7 +13,6 @@ import (
 	"github.com/jessevdk/go-flags"
 	"code.cloudfoundry.org/guardian/guardiancmd"
 	"code.cloudfoundry.org/lager"
-	"github.com/cloudfoundry-incubator/guardian/guardiancmd"
 	"github.com/concourse/atc"
 	"github.com/concourse/baggageclaim/baggageclaimcmd"
 	"github.com/concourse/baggageclaim/fs"
