@@ -9,7 +9,18 @@ import (
 
 type GardenBackend struct{}
 
-func (cmd *WorkerCommand) lessenRequirements(command *flags.Command) {}
+func (cmd *WorkerCommand) lessenRequirements(command *flags.Command) {
+	command.FindOptionByLongName("garden-depot").Required = false
+	command.FindOptionByLongName("garden-graph").Required = false
+	command.FindOptionByLongName("garden-runc-bin").Required = false
+	command.FindOptionByLongName("garden-dadoo-bin").Required = false
+	command.FindOptionByLongName("garden-init-bin").Required = false
+	command.FindOptionByLongName("garden-nstar-bin").Required = false
+	command.FindOptionByLongName("garden-tar-bin").Required = false
+
+	command.FindOptionByLongName("baggageclaim-volumes").Required = false
+	command.FindOptionByLongName("baggageclaim-driver").Default = []string{"btrfs"}
+}
 
 func (cmd *WorkerCommand) gardenRunner(logger lager.Logger, args []string) (atc.Worker, ifrit.Runner, error) {
 	err := cmd.checkRoot()
