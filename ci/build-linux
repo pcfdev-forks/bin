@@ -2,14 +2,13 @@
 
 set -e -x
 
-export GOPATH=$PWD/concourse:$PWD/garden-runc-release
+export GOPATH=$PWD/concourse:$PWD/garden-runc-release:$PWD/gopath/src/github.com/vito/houdini/deps
 export PATH=$PWD/concourse/bin:$PWD/garden-runc-release:$PATH
 
-FINAL_VERSION="$(cat $PWD/final-version/version)"
+FINAL_VERSION="0.0.0"
 WORKER_VERSION="$(cat $PWD/concourse/src/worker-version/version)"
 
 mkdir cli-artifacts
-mv fly-rc/fly_* cli-artifacts
 
 go get github.com/jteeuwen/go-bindata/go-bindata
 
@@ -21,5 +20,5 @@ go-bindata -nomemcopy -pkg bindata -o concourse/src/github.com/concourse/bin/bin
 go build \
   -tags daemon \
   -ldflags "-X main.Version=${FINAL_VERSION} -X github.com/concourse/atc/atccmd.Version=${FINAL_VERSION} -X github.com/concourse/atc/atccmd.WorkerVersion=${WORKER_VERSION} -X main.WorkerVersion=${WORKER_VERSION}" \
-  -o binary/concourse_linux_amd64 \
+  -o binary-linux/concourse_linux_amd64 \
   github.com/concourse/bin/cmd/concourse

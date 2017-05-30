@@ -8,11 +8,13 @@ image_resource:
 inputs:
 - name: concourse
 - name: garden-runc-release
-- name: fly-rc
-- name: final-version
+- name: bin
+  path: gopath/src/github.com/concourse/bin
+- name: houdini
+  path: gopath/src/github.com/vito/houdini
 
 outputs:
-- name: binary
+- name: binary-linux
 
 run:
-  path: concourse/src/github.com/concourse/bin/ci/build-linux
+  path: gopath/src/github.com/concourse/bin/ci/build-linux
