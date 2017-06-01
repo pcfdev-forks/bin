@@ -8,8 +8,6 @@ image_resource:
 inputs:
 - name: concourse
 - name: garden-runc-release
-- name: fly-rc
-- name: final-version
 
 outputs:
 - name: binary

@@ -160,12 +160,7 @@ func (cmd *WorkerCommand) baggageclaimRunner(logger lager.Logger, hasAssets bool
 	cmd.Baggageclaim.Metrics = cmd.Metrics
 	cmd.Baggageclaim.VolumesDir = baggageclaimcmd.DirFlag(volumesDir)
 
-	cmd.Baggageclaim.OverlaysDir = filepath.Join(cmd.WorkDir.Path(), "overlays")
-
-	if hasAssets {
-		cmd.Baggageclaim.MkfsBin = cmd.assetPath("btrfs", "mkfs.btrfs")
-		cmd.Baggageclaim.BtrfsBin = cmd.assetPath("btrfs", "btrfs")
-	}
+	cmd.Baggageclaim.Driver = "naive"
 
 	return cmd.Baggageclaim.Runner(nil)
 }

@@ -3,7 +3,7 @@ set PATH=C:\Go\bin;%PATH%
 set GOPATH=%CD%\gopath;%CD%\concourse
 set PATH=%CD%\gopath\bin;%PATH%
 
-set /p FinalVersion=<final-version\version
+set /p FinalVersion=0.0.0
 set /p WorkerVersion=<concourse\src\worker-version\version
 
 mkdir cli-artifacts

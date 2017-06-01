@@ -5,11 +5,10 @@ set -e -x
 export GOPATH=$PWD/concourse:$PWD/garden-runc-release
 export PATH=$PWD/concourse/bin:$PWD/garden-runc-release:$PATH
 
-FINAL_VERSION="$(cat $PWD/final-version/version)"
+FINAL_VERSION="0.0.0"
 WORKER_VERSION="$(cat $PWD/concourse/src/worker-version/version)"
 
 mkdir cli-artifacts
-mv fly-rc/fly_* cli-artifacts
 
 go get github.com/jteeuwen/go-bindata/go-bindata
 
